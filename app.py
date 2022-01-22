@@ -1,4 +1,4 @@
-import determinants
+import determinant
 import rref
 
 
@@ -15,7 +15,7 @@ def get_computation():
         user_input = str(input("Type 'D/d' or 'R/r: ")).upper()
 
     if user_input == 'D':
-        determinants.main()
+        determinant.main()
     else:
         rref.main()
 

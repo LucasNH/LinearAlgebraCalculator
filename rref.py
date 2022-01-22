@@ -56,18 +56,18 @@ def matrix_to_string(matrix: List[List[float]]) -> str:
 
 
 def main():
-    matrix_rows = str((input("Number of matrix rows (1 through 99): ")))
+    matrix_rows = str((input("Number of matrix rows: ")))
     while not (matrix_rows.isdigit()) or \
-            not (1 <= int(matrix_rows) <= 99):
+            not (1 <= int(matrix_rows)):
         matrix_rows = \
-            str(input("Please enter a number in-between 1 and 99: "))
+            str(input("Please enter a positive integer: "))
     matrix_rows = int(matrix_rows)
 
-    matrix_cols = str((input("Number of matrix columns (1 through 99): ")))
+    matrix_cols = str((input("Number of matrix columns: ")))
     while not (matrix_cols.isdigit()) or \
-            not (1 <= int(matrix_cols) <= 99):
+            not (1 <= int(matrix_cols)):
         matrix_cols = \
-            str(input("Please enter a number in-between 1 and 99: "))
+            str(input("Please enter a positive integer: "))
     matrix_cols = int(matrix_cols)
 
     matrix = list()
