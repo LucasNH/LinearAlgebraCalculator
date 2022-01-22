@@ -101,19 +101,23 @@ def find_most_zeros(matrix):
 
 
 def main():
-    size_of_matrix = str((input("Size of square matrix (1 through 999): ")))
+    size_of_matrix = str((input("Size of square matrix (1 through 99): ")))
     while not (size_of_matrix.isdigit()) or \
-            not (1 <= int(size_of_matrix) <= 999):
+            not (1 <= int(size_of_matrix) <= 99):
         size_of_matrix = \
-            str(input("Please enter an integer between 1 and 999: "))
+            str(input("Please enter a size in-between 1 and 99: "))
     size_of_matrix = int(size_of_matrix)
     matrix = list()
     for i in range(size_of_matrix):
         ith_row = list()
         print("Enter the entries for row " + str(i + 1) + ": ")
         for j in range(size_of_matrix):
-            ith_row.append(float(input("Entry (" + str(i + 1) +
-                                       ", " + str(j + 1) + "): ")))
+            entry = input("Entry (" + str(i + 1) +
+                          ", " + str(j + 1) + "): ")
+            while not (entry.isnumeric()):
+                entry = input("Entry (" + str(i + 1) +
+                              ", " + str(j + 1) + "): ")
+            ith_row.append(float(entry))
         matrix.append(ith_row)
 
     print("\nInputted matrix:")

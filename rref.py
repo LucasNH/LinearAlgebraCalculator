@@ -56,18 +56,18 @@ def matrix_to_string(matrix: List[List[float]]) -> str:
 
 
 def main():
-    matrix_rows = str((input("Number of matrix rows: ")))
+    matrix_rows = str((input("Number of matrix rows (1 through 99): ")))
     while not (matrix_rows.isdigit()) or \
-            not (1 <= int(matrix_rows)):
+            not (1 <= int(matrix_rows) <= 99):
         matrix_rows = \
-            str(input("Please enter a positive integer: "))
+            str(input("Please enter a number in-between 1 and 99: "))
     matrix_rows = int(matrix_rows)
 
-    matrix_cols = str((input("Number of matrix columns: ")))
+    matrix_cols = str((input("Number of matrix columns (1 through 99): ")))
     while not (matrix_cols.isdigit()) or \
-            not (1 <= int(matrix_cols)):
+            not (1 <= int(matrix_cols) <= 99):
         matrix_cols = \
-            str(input("Please enter a positive integer: "))
+            str(input("Please enter a number in-between 1 and 99: "))
     matrix_cols = int(matrix_cols)
 
     matrix = list()
@@ -75,8 +75,12 @@ def main():
         ith_row = list()
         print("Enter the entries for row " + str(i + 1) + ": ")
         for j in range(matrix_cols):
-            ith_row.append(float(input("Entry (" + str(i + 1) +
-                                       ", " + str(j + 1) + "): ")))
+            entry = input("Entry (" + str(i + 1) +
+                          ", " + str(j + 1) + "): ")
+            while not (entry.isnumeric()):
+                entry = input("Entry (" + str(i + 1) +
+                              ", " + str(j + 1) + "): ")
+            ith_row.append(float(entry))
         matrix.append(ith_row)
 
     print("\nInputted matrix:")
