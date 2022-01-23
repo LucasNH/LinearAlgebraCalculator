@@ -55,6 +55,17 @@ def matrix_to_string(matrix: List[List[float]]) -> str:
     return matrix_string
 
 
+def is_number(n):
+    """
+    Returns true iff n is a real number.
+    """
+    try:
+        float(n)
+        return True
+    except ValueError:
+        return False
+
+
 def main():
     matrix_rows = str((input("Number of matrix rows (1 through 99): ")))
     while not (matrix_rows.isdigit()) or \
@@ -77,7 +88,7 @@ def main():
         for j in range(matrix_cols):
             entry = input("Entry (" + str(i + 1) +
                           ", " + str(j + 1) + "): ")
-            while not (entry.isnumeric()):
+            while not (is_number(entry)):
                 entry = input("Entry (" + str(i + 1) +
                               ", " + str(j + 1) + "): ")
             ith_row.append(float(entry))

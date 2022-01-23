@@ -100,6 +100,17 @@ def find_most_zeros(matrix):
     return with_most_zeros[1:]
 
 
+def is_number(n):
+    """
+    Returns true iff n is a real number.
+    """
+    try:
+        float(n)
+        return True
+    except ValueError:
+        return False
+
+
 def main():
     size_of_matrix = str((input("Size of square matrix (1 through 99): ")))
     while not (size_of_matrix.isdigit()) or \
@@ -114,7 +125,7 @@ def main():
         for j in range(size_of_matrix):
             entry = input("Entry (" + str(i + 1) +
                           ", " + str(j + 1) + "): ")
-            while not (entry.isnumeric()):
+            while not (is_number(entry)):
                 entry = input("Entry (" + str(i + 1) +
                               ", " + str(j + 1) + "): ")
             ith_row.append(float(entry))
